@@ -32,7 +32,7 @@ public class Result {
     }
 
     private void generateResult(User user) {
-        validateUserExists(user);
+        validateUserNotExists(user);
 
         if (!result.containsKey(user)) {
             int index = ladders.getResult(users.getUsers().indexOf(user));
@@ -40,13 +40,13 @@ public class Result {
         }
     }
 
-    private void validateUserExists(User user) {
-        if (isUserExists(user)) {
+    private void validateUserNotExists(User user) {
+        if (isUserNotExists(user)) {
             throw new IllegalArgumentException(INVALID_USER_MESSAGE);
         }
     }
 
-    public boolean isUserExists(User user) {
+    public boolean isUserNotExists(User user) {
         return !users.getUsers()
                 .contains(user);
     }
