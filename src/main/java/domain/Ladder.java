@@ -1,7 +1,6 @@
 package domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Ladder {
@@ -23,12 +22,16 @@ public class Ladder {
 
     private List<Position> requirement(BooleanGenerator randomGenerator) {
         if (randomGenerator.get()) {
-            return Arrays.asList(Position.LEFT, Position.RIGHT);
+            return List.of(Position.LEFT, Position.RIGHT);
         }
-        return Arrays.asList(Position.DOWN);
+        return List.of(Position.DOWN);
     }
 
     public List<Position> getLadder() {
         return new ArrayList<>(ladder);
+    }
+
+    public int getMove(int total){
+        return getLadder().get(total).getMove();
     }
 }

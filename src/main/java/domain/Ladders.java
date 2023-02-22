@@ -32,9 +32,6 @@ public class Ladders {
     }
 
     private int calculateResult(int total, int currentHeight) {
-        return total + ladders.get(currentHeight)
-                .getLadder()
-                .get(total)
-                .getMove();
+        return total + ladders.get(currentHeight).getMove(total);
     }
 }
