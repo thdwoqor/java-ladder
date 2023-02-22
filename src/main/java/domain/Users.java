@@ -24,15 +24,15 @@ public class Users {
                 .collect(Collectors.toList()));
     }
 
-    private static void validateUserCount(List<String> users) {
-        if (users.size() < USER_COUNT_MIN_RANGE || users.size() > USER_COUNT_MAX_RANGE) {
-            throw new IllegalArgumentException(INVALID_USER_COUNT_MESSAGE);
-        }
-    }
-
     private static void validateDuplicateName(List<String> users) {
         if (isDuplicateName(users)) {
             throw new IllegalArgumentException(INVALID_SAME_USER_NAME_MESSAGE);
+        }
+    }
+
+    private static void validateUserCount(List<String> users) {
+        if (users.size() < USER_COUNT_MIN_RANGE || users.size() > USER_COUNT_MAX_RANGE) {
+            throw new IllegalArgumentException(INVALID_USER_COUNT_MESSAGE);
         }
     }
 

@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.concurrent.Callable;
 
 public class ResultController {
-    public static String END_COMMAND = "all";
     private final InputView inputView;
     private final OutputView outputView;
     private final Result result;
@@ -62,9 +61,11 @@ public class ResultController {
         }
 
         public static Status valueOfStatus(String command) {
+            String END_COMMAND = "all";
             if (command.equals(END_COMMAND)) {
                 return ALL;
             }
+
             return CONTINUE;
         }
     }

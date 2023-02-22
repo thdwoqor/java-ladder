@@ -21,16 +21,6 @@ public class Result {
         return new Result(users, items, ladders);
     }
 
-    public HashMap<User, Item> getItem(User user) {
-        generateResult(user);
-        return new LinkedHashMap<>(Map.of(user, result.get(user)));
-    }
-
-    public HashMap<User, Item> getItemsALL() {
-        users.getUsers().forEach(this::generateResult);
-        return new LinkedHashMap<>(result);
-    }
-
     private void generateResult(User user) {
         validateUserNotExists(user);
 
@@ -46,8 +36,18 @@ public class Result {
         }
     }
 
-    public boolean isUserNotExists(User user) {
+    private boolean isUserNotExists(User user) {
         return !users.getUsers()
                 .contains(user);
+    }
+
+    public HashMap<User, Item> getItem(User user) {
+        generateResult(user);
+        return new LinkedHashMap<>(Map.of(user, result.get(user)));
+    }
+
+    public HashMap<User, Item> getItemsALL() {
+        users.getUsers().forEach(this::generateResult);
+        return new LinkedHashMap<>(result);
     }
 }

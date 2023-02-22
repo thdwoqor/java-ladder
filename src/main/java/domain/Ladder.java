@@ -32,6 +32,7 @@ public class Ladder {
     }
 
     public int getMove(int total){
-        return getLadder().get(total).getMove();
+        return getLadder().get(total)
+                .getMove();
     }
 }

@@ -15,19 +15,15 @@ public class Item {
         this.item = item;
     }
 
-    public String getItem() {
-        return item;
+    private void validateItemLength(String name) {
+        if (ITEM_MIN_LENGTH > name.length()) {
+            throw new IllegalArgumentException(INVALID_ITEM_LENGTH_MESSAGE);
+        }
     }
 
     private void validateBlankItem(String name) {
         if (name.isBlank()) {
             throw new IllegalArgumentException(INVALID_ITEM_BLANK_MESSAGE);
-        }
-    }
-
-    private void validateItemLength(String name) {
-        if (ITEM_MIN_LENGTH > name.length()) {
-            throw new IllegalArgumentException(INVALID_ITEM_LENGTH_MESSAGE);
         }
     }
 
@@ -49,5 +45,9 @@ public class Item {
         return "Item{" +
                 "item='" + item + '\'' +
                 '}';
+    }
+
+    public String getItem() {
+        return item;
     }
 }

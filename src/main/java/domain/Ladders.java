@@ -18,8 +18,9 @@ public class Ladders {
                 .collect(Collectors.toList()));
     }
 
-    public int getHeight() {
-        return ladders.size();
+    private int calculateResult(int total, int currentHeight) {
+        return total + ladders.get(currentHeight)
+                .getMove(total);
     }
 
     public List<Ladder> getLadders() {
@@ -31,7 +32,7 @@ public class Ladders {
                 .reduce(current, this::calculateResult);
     }
 
-    private int calculateResult(int total, int currentHeight) {
-        return total + ladders.get(currentHeight).getMove(total);
+    public int getHeight() {
+        return ladders.size();
     }
 }
